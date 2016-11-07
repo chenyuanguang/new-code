@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        main{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .rotate{
+            position: relative;
+            width: 500px;
+        }
+        .font{
+            background-color: #ffffff;
+            border-color: #eac81c;
+            border-radius: 8px;
+            border-style: solid;
+            border-width: 1px;
+            color: #747474;
+            -webkit-perspective: 600px;
+            -ms-perspective: 600px;
+            perspective: 600px;
+            padding: 27px 20px 27px 20px;
+            text-align: center;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background-clip: padding-box;
+            transition: all .10s cubic-bezier(0.2,.85,.4,1.275) !important;
+        }
+        .back{
+            border: 1px solid rgb(234, 200, 28);
+            border-radius: 8px;
+            color: rgb(255, 255, 255);
+            min-height: 116px;
+            background-color: rgb(160, 206, 78);
+            position: absolute;
+            left: 0;
+            top: 0;
+            height:auto;
+            width: 100%;
+            -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+            z-index: -1;
+            webkit-perspective: 600px;
+            -ms-perspective: 600px;
+            perspective: 600px;
+            padding: 27px 20px 27px 20px;
+            text-align: center;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            background-clip: padding-box;
+            transition: all .4s cubic-bezier(0.2,.85,.4,1.275) !important;
+        }
+        .rotate .bshow{
+            -webkit-transform: rotate(0deg);
+            z-index: 1;
+            transition: all .4s cubic-bezier(0.2,.85,.4,1.275) !important;
+        }
+        .rotate .fhid{
+            -webkit-transform: rotate(180deg);
+            z-index:-1;
+            transition: all .4s cubic-bezier(0.2,.85,.4,1.275) !important;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="rotate">
+            <div class="font">1</div>
+            <div class="back">2</div>
+        </section>
+    </main>
+    <script type="text/javascript" src="../jquery-1.11.2.min.js"></script>
+    <script>
+        $(".rotate").hover(function(){
+            $(".back").addClass("bshow")
+            $(".font").addClass("fhid")
+        },function(){
+            $(".back").removeClass("bshow")
+            $(".font").removeClass("fhid")
+        })
+    </script>
+</body>
+</html>
